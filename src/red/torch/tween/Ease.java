@@ -56,8 +56,8 @@ public abstract class Ease extends Interpolator {
 	 */
 	static public final Ease SMOOTHSTEP = new Ease() {
 		@Override
-		public double curve(double a) {
-			return a * a * (3 - 2 * a);
+		public double curve(double t) {
+			return t * t * (3 - 2 * t);
 		}
 	};
 
@@ -67,9 +67,9 @@ public abstract class Ease extends Interpolator {
 	 */
 	static public final Ease QUAD_SMOOTHSTEP = new Ease() {
 		@Override
-		public double curve(double a) {
-			a = a * a * (3 - 2 * a);
-			return a * a * (3 - 2 * a);
+		public double curve(double t) {
+			t = t * t * (3 - 2 * t);
+			return t * t * (3 - 2 * t);
 		}
 	};
 
@@ -79,8 +79,8 @@ public abstract class Ease extends Interpolator {
 	 */
 	static public final Ease SMOOTHERSTEP = new Ease() {
 		@Override
-		public double curve(double a) {
-			return a * a * a * (a * (a * 6 - 15) + 10);
+		public double curve(double t) {
+			return t * t * t * (t * (t * 6 - 15) + 10);
 		}
 	};
 
