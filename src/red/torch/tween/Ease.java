@@ -5,6 +5,14 @@ import javafx.animation.Interpolator;
 /**
  * torch Tween Library (Ease)
  *
+ * sine, quad, cubic, quart, quint, expo, circ, back, elastic, bounce
+ * brings Robert Penner's easing functions
+ *
+ * See the following to learn more about these famous functions:
+ * http://www.robertpenner.com/easing/
+ *
+ * License:
+ * http://www.robertpenner.com/easing_terms_of_use.html
  */
 public abstract class Ease extends Interpolator {
 
@@ -36,9 +44,9 @@ public abstract class Ease extends Interpolator {
 	static public final Interpolator CIRC_IN = SPLINE(0.6, 0.04, 0.98, 0.335);
 	static public final Interpolator CIRC_OUT = SPLINE(0.785, 0.135, 0.15, 0.86);
 
-	static public final Back BACK_BOTH = new Back(1.7);
-	static public final BackIn BACK_IN = new BackIn(1.7);
-	static public final BackOut BACK_OUT = new BackOut(1.7);
+	static public final Back BACK_BOTH = new Back(1.70158);
+	static public final BackIn BACK_IN = new BackIn(1.70158);
+	static public final BackOut BACK_OUT = new BackOut(1.70158);
 
 	static public final Elastic ELASTIC_BOTH = new Elastic(1, 0.3 * 1.5);
 	static public final ElasticIn ELASTIC_IN = new ElasticIn(1, 0.3);

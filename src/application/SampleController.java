@@ -68,8 +68,8 @@ public class SampleController {
 	private ImageView easeSmoother;
 
 	@FXML
-    private void initialize() {
-    }
+	private void initialize() {
+	}
 
 	@FXML
 	public void onClickTweenButton(ActionEvent event) {
