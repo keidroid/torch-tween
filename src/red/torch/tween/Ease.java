@@ -5,12 +5,6 @@ import javafx.animation.Interpolator;
 /**
  * torch Tween Library (Ease)
  *
- * sine, quad, cubic, quart, quint, expo, circ, back, elastic, bounce
- * brings Robert Penner's easing functions
- *
- * See the following to learn more about these famous functions:
- * http://www.robertpenner.com/easing/
- *
  * License:
  * http://www.robertpenner.com/easing_terms_of_use.html
  */
@@ -28,7 +22,7 @@ public abstract class Ease extends Interpolator {
 	static public final Interpolator CUBIC_IN = SPLINE(0.55, 0.055, 0.675, 0.19);
 	static public final Interpolator CUBIC_OUT = SPLINE(0.215, 0.61, 0.355, 1);
 
-	static public final Interpolator QUART_BOTH = SPLINE(0.86, 0, 0.07, 1);
+	static public final Interpolator QUART_BOTH = SPLINE(0.77, 0, 0.175, 1);
 	static public final Interpolator QUART_IN = SPLINE(0.895, 0.03, 0.685, 0.22);
 	static public final Interpolator QUART_OUT = SPLINE(0.165, 0.84, 0.44, 1);
 
@@ -40,21 +34,21 @@ public abstract class Ease extends Interpolator {
 	static public final Interpolator EXPO_IN = SPLINE(0.95, 0.05, 0.795, 0.035);
 	static public final Interpolator EXPO_OUT = SPLINE(0.19, 1, 0.22, 1);
 
-	static public final Interpolator CIRC_BOTH = SPLINE(0.19, 1, 0.22, 1);
+	static public final Interpolator CIRC_BOTH = SPLINE(0.785, 0.135, 0.15, 0.86);
 	static public final Interpolator CIRC_IN = SPLINE(0.6, 0.04, 0.98, 0.335);
-	static public final Interpolator CIRC_OUT = SPLINE(0.785, 0.135, 0.15, 0.86);
+	static public final Interpolator CIRC_OUT = SPLINE(0.075, 0.82, 0.165, 1);
 
-	static public final Back BACK_BOTH = new Back(1.70158);
+	static public final Back BACK_BOTH = new Back(1.70158 * 1.525);
 	static public final BackIn BACK_IN = new BackIn(1.70158);
 	static public final BackOut BACK_OUT = new BackOut(1.70158);
 
-	static public final Elastic ELASTIC_BOTH = new Elastic(1, 0.3 * 1.5);
-	static public final ElasticIn ELASTIC_IN = new ElasticIn(1, 0.3);
-	static public final ElasticOut ELASTIC_OUT = new ElasticOut(1, 0.3);
+	static public final Elastic ELASTIC_BOTH = new Elastic();
+	static public final ElasticIn ELASTIC_IN = new ElasticIn();
+	static public final ElasticOut ELASTIC_OUT = new ElasticOut();
 
-	static public final Bounce BOUNCE_BOTH = new Bounce(4);
-	static public final BounceIn BOUNCE_IN = new BounceIn(4);
-	static public final BounceOut BOUNCE_OUT = new BounceOut(4);
+	static public final Bounce BOUNCE_BOTH = new Bounce();
+	static public final BounceIn BOUNCE_IN = new BounceIn();
+	static public final BounceOut BOUNCE_OUT = new BounceOut();
 
 	/**
 	 * Hermite interpolation (Smoothstep)
@@ -99,7 +93,6 @@ public abstract class Ease extends Interpolator {
 
 		@Override
 		public double curve(double t) {
-			double amount = this.amount * 1.525;
 			if ((t *= 2) < 1) {
 				return 0.5 * (t * t * ((amount + 1) * t - amount));
 			}
@@ -130,163 +123,67 @@ public abstract class Ease extends Interpolator {
 	}
 
 	static public class Elastic extends Ease {
-		static final double PI2 = (Math.PI * 2);
-		final double amplitude, period;
-
-		public Elastic (double amplitude, double period) {
-			this.amplitude = amplitude;
-			this.period = period;
-		}
-
-		@Override
-		public double curve(double t) {
-			double s = period / (PI2) * Math.asin(1 / amplitude);
-			if ((t *= 2) < 1) {
-				return -0.5 * (amplitude * Math.pow(2, 10 * (t -= 1)) * Math.sin((t - s) * PI2 / period ));
-			}
-			return amplitude * Math.pow(2, -10 * (t -= 1)) * Math.sin((t - s) * PI2 / period) * 0.5 + 1;
-		}
-	}
-
-	static public class ElasticIn extends Elastic {
-		public ElasticIn (double amplitude, double period) {
-			super(amplitude, period);
-		}
-
 		@Override
 		public double curve(double t) {
 			if (t == 0 || t == 1) {
 				return t;
 			}
-			double s = period / PI2 * Math.asin(1 / amplitude);
-			return -(amplitude * Math.pow(2, 10 * (t -= 1)) * Math.sin((t - s) * PI2 / period));
+			t *= 2;
+			if (t < 1) {
+				return -0.5 * Math.pow(2, 10 * (t - 1)) * Math.sin((t - 1.1) * 5 * Math.PI);
+			}
+			return 0.5 * Math.pow(2, -10 * (t - 1)) * Math.sin((t - 1.1) * 5 * Math.PI) + 1;
 		}
 	}
 
-	static public class ElasticOut extends Elastic {
-		public ElasticOut (double amplitude, double period) {
-			super(amplitude, period);
-		}
-
+	static public class ElasticIn extends Ease {
 		@Override
 		public double curve(double t) {
 			if (t == 0 || t == 1) {
 				return t;
 			}
-			double s = period / PI2 * Math.asin(1 / amplitude);
-			return (amplitude * Math.pow(2, -10 * t) * Math.sin((t - s) * PI2 / period) + 1);
+			return -Math.pow(2, 10 * (t - 1)) * Math.sin((t - 1.1) * 5 * Math.PI);
+		}
+	}
+
+	static public class ElasticOut extends Ease {
+		@Override
+		public double curve(double t) {
+			return Math.pow(2, -10 * t) * Math.sin((t - 0.1) * 5 * Math.PI) + 1;
 		}
 	}
 
 	static public class Bounce extends BounceOut {
-		public Bounce (double[] widths, double[] heights) {
-			super(widths, heights);
-		}
-
-		public Bounce(int bounces) {
-			super(bounces);
-		}
-
-		private double out(double a) {
-			double tmp = a + widths[0] * 0.5;
-			if (tmp < widths[0]) {
-				return tmp / (widths[0] / 2) - 1;
-			}
-			return super.curve(a);
-		}
 
 		@Override
-		public double curve(double a) {
-			if (a <= 0.5) {
-				return (1 - out(1 - a * 2)) * 0.5;
+		public double curve(double t) {
+			if (t <= 0.5) {
+				return (1 - super.curve(1 - t * 2)) * 0.5;
 			}
-			return out(a * 2 - 1) * 0.5 + 0.5;
+			return super.curve(t * 2 - 1) * 0.5 + 0.5;
 		}
 	}
 
 	static public class BounceOut extends Ease {
-		final double[] widths, heights;
-
-		public BounceOut(double[] widths, double[] heights) {
-			if (widths.length != heights.length)
-				throw new IllegalArgumentException("Must be the same number of widths and heights.");
-			this.widths = widths;
-			this.heights = heights;
-		}
-
-		public BounceOut(int bounces) {
-			if (bounces < 2 || bounces > 5) throw new IllegalArgumentException("bounces cannot be < 2 or > 5: " + bounces);
-			widths = new double[bounces];
-			heights = new double[bounces];
-			heights[0] = 1;
-			switch (bounces) {
-			case 2:
-				widths[0] = 0.6;
-				widths[1] = 0.4;
-				heights[1] = 0.33;
-				break;
-			case 3:
-				widths[0] = 0.4;
-				widths[1] = 0.4;
-				widths[2] = 0.2;
-				heights[1] = 0.33;
-				heights[2] = 0.1;
-				break;
-			case 4:
-				widths[0] = 0.34;
-				widths[1] = 0.34;
-				widths[2] = 0.2;
-				widths[3] = 0.15;
-				heights[1] = 0.26;
-				heights[2] = 0.11;
-				heights[3] = 0.03;
-				break;
-			case 5:
-				widths[0] = 0.3;
-				widths[1] = 0.3;
-				widths[2] = 0.2;
-				widths[3] = 0.1;
-				widths[4] = 0.1;
-				heights[1] = 0.45;
-				heights[2] = 0.3;
-				heights[3] = 0.15;
-				heights[4] = 0.06;
-				break;
-			}
-			widths[0] *= 2;
-		}
-
 		@Override
-		public double curve(double a) {
-			if (a == 1) return 1;
-			a += widths[0] / 2;
-			double width = 0, height = 0;
-			for (int i = 0, n = widths.length; i < n; i++) {
-				width = widths[i];
-				if (a <= width) {
-					height = heights[i];
-					break;
-				}
-				a -= width;
+		public double curve(double t) {
+			if (t < (1 / 2.75)) {
+				return 7.5625 * t * t;
+			} else if (t < (2 / 2.75)) {
+				return 7.5625 * (t -= (1.5 / 2.75)) * t + 0.75;
+			} else if (t < (2.5 / 2.75)) {
+				return 7.5625 * (t -= (2.25 / 2.75)) * t + 0.9375;
+			} else {
+				return 7.5625 * (t -= (2.625 / 2.75)) * t + 0.984375;
 			}
-			a /= width;
-			double z = 4 / width * height * a;
-			return 1 - (z - z * a) * width;
 		}
 	}
 
 	static public class BounceIn extends BounceOut {
-		public BounceIn (double[] widths, double[] heights) {
-			super(widths, heights);
-		}
-
-		public BounceIn (int bounces) {
-			super(bounces);
-		}
 
 		@Override
-		public double curve(double a) {
-			return 1 - super.curve(1 - a);
+		public double curve(double t) {
+			return 1 - super.curve(1 - t);
 		}
 	}
 }
