@@ -1,7 +1,7 @@
 # torch-tween
 JavaFx Tween & Ease Library
 
-* [download](https://github.com/keidroid/torch-tween/blob/master/output/torch-tween-0.9.0.jar?raw=true)
+* [download](https://github.com/keidroid/torch-tween/blob/master/output/torch-tween-0.9.1.jar?raw=true)
 
 # License
 
@@ -25,6 +25,7 @@ limitations under the License.
 ```
 
 * Easing Equations is licensed under the BSD Licence.
+
 [Robert Penner's open source easing equations](http://robertpenner.com/easing_terms_of_use.html).
 
 # Ease
