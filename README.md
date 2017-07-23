@@ -12,8 +12,8 @@ torch-tween
 Copyright (c) 2017 torch Inc.
 ```
 
-* including BSD Licence
- * [Robert Penner's open source easing equations](http://robertpenner.com/easing_terms_of_use.html).
+* Easing Equations is licensed under the BSD Licence.
+[Robert Penner's open source easing equations](http://robertpenner.com/easing_terms_of_use.html).
 
 # Ease
 include 33 ease.
