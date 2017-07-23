@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="640.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SampleController">
+   <children>
+      <HBox minWidth="200.0" prefWidth="200.0" spacing="4.0">
+         <children>
+            <VBox prefHeight="200.0" prefWidth="100.0" spacing="2.0">
+               <children>
+                  <Label text="Tween Sample" />
+                  <Button mnemonicParsing="false" onAction="#onClickTweenButton" text="Start" />
+                  <Label fx:id="tweenSample" text="Label" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <VBox layoutX="200.0" spacing="2.0">
+         <children>
+            <Label layoutX="400.0" text="Ease Sample" />
+            <Button mnemonicParsing="false" onAction="#onClickEaseButton" text="Start" />
+            <HBox prefWidth="400.0">
+               <children>
+                  <Label prefWidth="120.0" text="easeLinear" />
+                  <ImageView fx:id="easeLinear" fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@sprite.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <Label text=" - In" />
+            <HBox prefWidth="400.0">
+               <children>
+                  <Label prefWidth="120.0" text="easeSineIn" />
+                  <ImageView fx:id="easeSineIn" fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@sprite.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <HBox prefWidth="400.0">
+               <children>
+                  <Label prefWidth="120.0" text="easeQuadIn" />
+                  <ImageView fx:id="easeQuadIn" fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@sprite.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <HBox prefWidth="400.0">
+               <children>
+                  <Label prefWidth="120.0" text="easeCubicIn" />
+                  <ImageView fx:id="easeCubicIn" fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@sprite.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <HBox prefWidth="400.0">
+               <children>
+                  <Label prefWidth="120.0" text="easeExpoIn" />
+                  <ImageView fx:id="easeExpoIn" fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@sprite.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <HBox prefWidth="400.0">
+               <children>
+                  <Label prefWidth="120.0" text="easeBackIn" />
+                  <ImageView fx:id="easeBackIn" fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@sprite.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <HBox prefWidth="400.0">
+               <children>
+                  <Label prefWidth="120.0" text="easeElasticIn" />
+                  <ImageView fx:id="easeElasticIn" fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@sprite.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <HBox prefWidth="400.0">
+               <children>
+                  <Label prefWidth="120.0" text="easeBounceIn" />
+                  <ImageView fx:id="easeBounceIn" fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@sprite.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <Label text=" - Out" />
+            <HBox prefWidth="400.0">
+               <children>
+                  <Label prefWidth="120.0" text="easeSineOut" />
+                  <ImageView fx:id="easeSineOut" fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@sprite.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <HBox prefWidth="400.0">
+               <children>
+                  <Label prefWidth="120.0" text="easeQuadOut" />
+                  <ImageView fx:id="easeQuadOut" fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@sprite.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <HBox prefWidth="400.0">
+               <children>
+                  <Label prefWidth="120.0" text="easeCubicOut" />
+                  <ImageView fx:id="easeCubicOut" fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@sprite.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <HBox prefWidth="400.0">
+               <children>
+                  <Label prefWidth="120.0" text="easeExpoOut" />
+                  <ImageView fx:id="easeExpoOut" fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@sprite.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <HBox prefWidth="400.0">
+               <children>
+                  <Label prefWidth="120.0" text="easeBackOut" />
+                  <ImageView fx:id="easeBackOut" fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@sprite.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <HBox prefWidth="400.0">
+               <children>
+                  <Label prefWidth="120.0" text="easeElasticOut" />
+                  <ImageView fx:id="easeElasticOut" fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@sprite.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <HBox prefWidth="400.0">
+               <children>
+                  <Label prefWidth="120.0" text="easeBounceOut" />
+                  <ImageView fx:id="easeBounceOut" fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@sprite.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <Label text=" - InOut (Both)" />
+            <HBox prefWidth="400.0">
+               <children>
+                  <Label prefWidth="120.0" text="easeSineOut" />
+                  <ImageView fx:id="easeSineInOut" fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@sprite.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <HBox prefWidth="400.0">
+               <children>
+                  <Label prefWidth="120.0" text="easeQuadInOut" />
+                  <ImageView fx:id="easeQuadInOut" fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@sprite.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <HBox prefWidth="400.0">
+               <children>
+                  <Label prefWidth="120.0" text="easeCubicInOut" />
+                  <ImageView fx:id="easeCubicInOut" fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@sprite.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <HBox prefWidth="400.0">
+               <children>
+                  <Label prefWidth="120.0" text="easeExpoInOut" />
+                  <ImageView fx:id="easeExpoInOut" fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@sprite.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <HBox prefWidth="400.0">
+               <children>
+                  <Label prefWidth="120.0" text="easeBackInOut" />
+                  <ImageView fx:id="easeBackInOut" fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@sprite.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <HBox prefWidth="400.0">
+               <children>
+                  <Label prefWidth="120.0" text="easeElasticInOut" />
+                  <ImageView fx:id="easeElasticInOut" fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@sprite.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <HBox prefWidth="400.0">
+               <children>
+                  <Label prefWidth="120.0" text="easeBounceInOut" />
+                  <ImageView fx:id="easeBounceInOut" fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@sprite.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <Label text=" - Other" />
+            <HBox prefWidth="400.0">
+               <children>
+                  <Label prefWidth="120.0" text="easeSmooth" />
+                  <ImageView fx:id="easeSmooth" fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@sprite.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <HBox prefWidth="400.0">
+               <children>
+                  <Label prefWidth="120.0" text="easeQuadSmooth" />
+                  <ImageView fx:id="easeQuadSmooth" fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@sprite.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <HBox prefWidth="400.0">
+               <children>
+                  <Label prefWidth="120.0" text="easeSmoother" />
+                  <ImageView fx:id="easeSmoother" fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@sprite.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</Pane>
