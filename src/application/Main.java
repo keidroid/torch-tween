@@ -10,7 +10,7 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			Pane root = (Pane)FXMLLoader.load(getClass().getResource("Sample.fxml"));
+			Pane root = (Pane)FXMLLoader.load(getClass().getResource("/fxml/Sample.fxml"));
 			Scene scene = new Scene(root, 640, 640);
 			primaryStage.setScene(scene);
 			primaryStage.show();
