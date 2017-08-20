@@ -7,10 +7,14 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import red.torch.tween.Ease;
 import red.torch.tween.Tween;
 
 public class SampleController {
+
+	@FXML
+	private Pane rootPane;
 
 	@FXML
 	private Label tweenSample;
