@@ -11,7 +11,7 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			Pane root = (Pane)FXMLLoader.load(getClass().getResource("/fxml/Sample.fxml"));
-			Scene scene = new Scene(root, 640, 640);
+			Scene scene = new Scene(root, root.getPrefWidth(), root.getPrefHeight());
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		} catch(Exception e) {
